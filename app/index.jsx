@@ -7,6 +7,8 @@ import styles from './styles';
 export default function App() {
     const [number, onChangeNumber] = React.useState('');
     const [tramlineWidth, setTramlineWidth] = useState(0);
+    const [tramlineCounter, setTramlineCounter] = useState(1);
+    const [maxTramlineCounter, setMaxTramlineCounter] = useState(tramlineWidth / number)
 
     const substractTramlineWidth = () => {
         if(number == '')
@@ -39,6 +41,18 @@ export default function App() {
         }
     }
 
+    const substractTramline = () => {
+        const newTramlineCounter = tramlineCounter - 1
+        if(newTramlineCounter > 0)
+        {
+            setTramlineCounter(newTramlineCounter)
+        }
+    }
+    const addTramline = () => {
+        const newTramlineCounter = tramlineCounter + 1
+        setTramlineCounter(newTramlineCounter)
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.label}>
@@ -66,6 +80,22 @@ export default function App() {
                 </Pressable>
                 <Text style={styles.seederWidthValue}>{tramlineWidth}</Text>
                 <Pressable style={styles.smallButton} onPress={addTramlineWidth}>
+                    <Text style={styles.smallButtonText}>+</Text>
+                </Pressable>
+            </View>
+
+            <Pressable style={styles.calculateTramlines}>
+                <Text style={styles.calculateTramlinesText}>Calculate tramlines!</Text>
+            </Pressable>
+
+            <Text style={styles.label}>Tramline:</Text>
+            <Text style={styles.tramlineCounter}>{tramlineCounter} / {maxTramlineCounter}</Text>
+            <Text style={styles.tramlineCounterInfo}>Without tramline!</Text>
+            <View style={styles.containerSeederWidth}>
+                <Pressable style={styles.smallButton} onPress={substractTramline}>
+                    <Text style={styles.smallButtonText}>-</Text>
+                </Pressable>
+                <Pressable style={styles.smallButton} onPress={addTramline}>
                     <Text style={styles.smallButtonText}>+</Text>
                 </Pressable>
             </View>

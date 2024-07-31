@@ -15,6 +15,7 @@ export default styles = StyleSheet.create({
       justifyContent: 'space-between',
       alignItems: 'stretch',
       gap: 15,
+      marginBottom: 40,
     },
     label: {
       fontSize: 30,
@@ -68,6 +69,32 @@ export default styles = StyleSheet.create({
         textAlign: 'center',
         textAlignVertical: 'center',
         color: 'white',
+    },
+    tramlineCounter: {
+        color: 'white',
+        fontSize: 60,
+    },
+    tramlineCounterInfo: {
+        color: 'white',
+        fontSize: 20,
+        marginBottom: 10,
+    },
+    calculateTramlines: {
+        backgroundColor: colors.green._500,
+        width: 200,
+        height: 50,
+        marginBottom: 40,
+
+        display: 'flex',
+        justifyContent: 'center',
+        alignContent: 'center',
+
+    },
+    calculateTramlinesText: {
+        color: 'white',
+        fontSize: 20,
+
+        textAlign: 'center',
     },
   });
   
