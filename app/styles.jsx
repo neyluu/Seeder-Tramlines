@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import colors from './colors';
 
 export default styles = StyleSheet.create({
     container: {
@@ -7,11 +8,12 @@ export default styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
-    containerHorizontal: {
+    containerSeederWidth: {
+      width: 200,
       display: 'flex',
       flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center',
+      justifyContent: 'space-between',
+      alignItems: 'stretch',
       gap: 15,
     },
     label: {
@@ -22,11 +24,11 @@ export default styles = StyleSheet.create({
       width: 250,
       height: 50,
       marginBottom: 5,
-      backgroundColor: "#2c6b49",
+      backgroundColor: colors.green._500,
      
       borderRadius: 10,
       borderWidth: 3,
-      borderColor: '#1e3b2c',
+      borderColor: colors.green._700,
     },
     numberInputField: {
       fontSize: 20,
@@ -36,11 +38,36 @@ export default styles = StyleSheet.create({
       height: 50,
       marginBottom: 30,
       padding: 10,
-      backgroundColor: '#222',
+      backgroundColor: colors.grey._700,
   
       borderRadius: 10,
       borderWidth: 3,
-      borderColor: '#444',
-    }
+      borderColor: colors.grey._500,
+    },
+    smallButton: {
+        width: 50,
+        height: 50,
+
+        backgroundColor: colors.green._500,
+
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+
+        borderRadius: 10,
+        borderWidth: 3,
+        borderColor: colors.green._700,
+    },
+    smallButtonText: {
+        fontSize: 30,
+        textAlign: 'center',
+        textAlignVertical: 'center',
+    }, 
+    seederWidthValue: {
+        fontSize: 30,
+        textAlign: 'center',
+        textAlignVertical: 'center',
+        color: 'white',
+    },
   });
   
