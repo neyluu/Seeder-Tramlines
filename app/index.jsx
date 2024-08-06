@@ -10,6 +10,7 @@ export default function App() {
     const [tramlineCounter, setTramlineCounter] = useState(1);
     const [tramlinesCount, setTramlinesCount] = useState(tramlineWidth / seederWidth)
     const [tramlineOnNumber, setTramlineOnNumber] = useState(1)
+    const [tramlineInfo, setTramlineInfo] = useState("Without tramline!")
 
     const substractTramlineWidth = () => {
         if(seederWidth == '')
@@ -87,9 +88,11 @@ export default function App() {
     
     const checkForTramline = (counter) => {
         if (counter === tramlineOnNumber) {
-            console.log("TRAMLINE ON!" + counter);
+            console.log("TRAMLINE ON!" + counter)
+            setTramlineInfo("TRAMLINE ON!")
         } else {
-            console.log("TRAMLINE OFF!" + counter);
+            console.log("TRAMLINE OFF!" + counter)
+            setTramlineInfo("Without tramline!")
         }
     }
     return (
@@ -131,7 +134,9 @@ export default function App() {
             <View style={styles.tramlineCounterContainer}>
                 <Text style={styles.label}>Tramline:</Text>
                 <Text style={styles.tramlineCounter}>{tramlineCounter} / {tramlinesCount}</Text>
-                <Text style={styles.tramlineCounterInfo}>Without tramline!</Text>
+                <Text style={styles.tramlineCounterInfo}>
+                    {tramlineInfo}
+                </Text>
                 <View style={styles.containerSeederWidth}>
                     <Pressable style={styles.smallButton} onPress={substractTramline}>
                         <Text style={styles.smallButtonText}>-</Text>
