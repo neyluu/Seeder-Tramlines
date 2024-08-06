@@ -96,5 +96,10 @@ export default styles = StyleSheet.create({
 
         textAlign: 'center',
     },
+    tramlineCounterContainer: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
   });
   
