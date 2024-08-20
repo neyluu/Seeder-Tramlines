@@ -11,6 +11,7 @@ export default function App() {
     const [tramlinesCount, setTramlinesCount] = useState(tramlineWidth / seederWidth) //Total tramlines count
     const [tramlineOnNumber, setTramlineOnNumber] = useState(1) //Number of tramline when it should be ON
     const [tramlineInfo, setTramlineInfo] = useState("Without tramline!") //Tramline information show under tramline counter
+    const [isHalfSeederInfoVisible, setIsHalfSeederInfoVisible] = useState(false) //Visibility of information about starting seeding with half of the seeder
     const [isUserDataVisible, setIsUserDataVisible] = useState(true) //Visibility of user input data section
     const [isTramlineCounterVisible, setIsTramlineVisible] = useState(false) //Visibility of tramline counter screen
 
@@ -49,6 +50,9 @@ export default function App() {
         const localSeederWidth = parseFloat(seederWidth);
         const localTramlineWidth = parseFloat(tramlineWidth);
     
+        setTramlineCounter(1)
+        setTramlineInfo("Without tramline!")
+
         if(! (!isNaN(localSeederWidth) && localSeederWidth > 0 && localTramlineWidth > 0))
         {
             console.log("Invalid seeder width or tramline width.")
@@ -72,6 +76,15 @@ export default function App() {
         console.log("Max tramlines: " + localTramlinesCount)
         console.log("ON: " + newTramlineOnNumber)
         
+        if(localTramlinesCount % 2 == 0)
+        {
+            setIsHalfSeederInfoVisible(true)
+        }
+        else
+        {
+            setIsHalfSeederInfoVisible(false)
+        }
+
         setIsTramlineVisible(true)
         setIsUserDataVisible(false)
     }
@@ -159,10 +172,12 @@ export default function App() {
 
                 <View style={styles.tramlineContainer}>
                     <Text style={styles.label}>Tramline:</Text>
+                    {isHalfSeederInfoVisible && (
+                        <Text style={styles.tramlineCounterInfo}>You must start with half of the seeder!</Text>
+                    )}
+                   
                     <Text style={styles.tramlineCounter}>{tramlineCounter} / {tramlinesCount}</Text>
-                    <Text style={styles.tramlineCounterInfo}>
-                        {tramlineInfo}
-                    </Text>
+                    <Text style={styles.tramlineCounterInfo}>{tramlineInfo}</Text>
                     <View style={styles.containerSeederWidth}>
                         <Pressable style={styles.smallButton} onPress={substractTramline}>
                             <Text style={styles.smallButtonText}>-</Text>
