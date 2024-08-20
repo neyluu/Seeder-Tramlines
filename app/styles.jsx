@@ -96,7 +96,29 @@ export default styles = StyleSheet.create({
 
         textAlign: 'center',
     },
+    userDataContainer: {
+     
+    },
     tramlineCounterContainer: {
+      width: '100%',
+
+      display: 'flex',
+      alignItems: 'stretch',
+    },
+    backBtn: {
+      width: 100,
+      // backgroundColor: 'red',
+      marginBottom: 20,
+    },
+    backBtnText: {
+      color: 'white',
+      fontSize: 20,
+
+      textAlign: 'center',
+    },
+    tramlineContainer: {
+      width: '100%',
+      // backgroundColor: 'pink',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
