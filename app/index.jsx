@@ -14,7 +14,7 @@ export default function App() {
     const [isHalfSeederInfoVisible, setIsHalfSeederInfoVisible] = useState(false) //Visibility of information about starting seeding with half of the seeder
     const [isUserDataVisible, setIsUserDataVisible] = useState(true) //Visibility of user input data section
     const [isTramlineCounterVisible, setIsTramlineVisible] = useState(false) //Visibility of tramline counter screen
-
+    
     const substractTramlineWidth = () => {
         if(seederWidth == '')
         {
@@ -45,23 +45,23 @@ export default function App() {
             console.log("Adding tramline width: " + tramlineWidth)
         }
     }
-
+    
     const calculateTramlines = () => {
         const localSeederWidth = parseFloat(seederWidth);
         const localTramlineWidth = parseFloat(tramlineWidth);
     
         setTramlineCounter(1)
         setTramlineInfo("Without tramline!")
-
+    
         if(! (!isNaN(localSeederWidth) && localSeederWidth > 0 && localTramlineWidth > 0))
         {
             console.log("Invalid seeder width or tramline width.")
             return
         }
-
+    
         const localTramlinesCount = parseInt(localTramlineWidth / localSeederWidth)
         setTramlinesCount(localTramlinesCount)
-
+    
         let newTramlineOnNumber = 1
         if (localTramlinesCount % 2 === 0) 
             {
@@ -71,7 +71,7 @@ export default function App() {
         {
             newTramlineOnNumber = Math.ceil(localTramlinesCount / 2)
         }
-
+    
         setTramlineOnNumber(newTramlineOnNumber)
         console.log("Max tramlines: " + localTramlinesCount)
         console.log("ON: " + newTramlineOnNumber)
@@ -84,11 +84,11 @@ export default function App() {
         {
             setIsHalfSeederInfoVisible(false)
         }
-
+    
         setIsTramlineVisible(true)
         setIsUserDataVisible(false)
     }
-
+    
     const substractTramline = () => {
         const newTramlineCounter = tramlineCounter - 1;
         if (newTramlineCounter > 0) {
@@ -118,11 +118,11 @@ export default function App() {
             setTramlineInfo("Without tramline!")
         }
     }
-
+    
     const returnToMain = () => {
         setIsTramlineVisible(false)
         setIsUserDataVisible(true)
-    }
+    }    
 
     return (
         <View style={styles.container}>

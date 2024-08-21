@@ -9,7 +9,7 @@ export default styles = StyleSheet.create({
       justifyContent: 'center',
     },
     containerSeederWidth: {
-      width: 200,
+      width: 250,
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'space-between',
@@ -24,7 +24,7 @@ export default styles = StyleSheet.create({
   
       width: 250,
       height: 50,
-      marginBottom: 5,
+      marginBottom: 10,
       backgroundColor: colors.green._500,
      
       borderRadius: 10,
@@ -32,7 +32,7 @@ export default styles = StyleSheet.create({
       borderColor: colors.green._700,
     },
     numberInputField: {
-      fontSize: 20,
+      fontSize: 25,
       color: 'black',
   
       width: 250,
@@ -80,10 +80,11 @@ export default styles = StyleSheet.create({
         marginBottom: 10,
     },
     calculateTramlines: {
-        backgroundColor: colors.green._500,
-        width: 200,
-        height: 50,
+        backgroundColor: '#ed8200',
+        width: 250,
+        height: 60,
         marginBottom: 40,
+        borderRadius: 20,
 
         display: 'flex',
         justifyContent: 'center',
@@ -92,7 +93,7 @@ export default styles = StyleSheet.create({
     },
     calculateTramlinesText: {
         color: 'white',
-        fontSize: 20,
+        fontSize: 25,
 
         textAlign: 'center',
     },
