@@ -10,13 +10,12 @@ export default function App() {
     const [tramlinesCount, setTramlinesCount] = useState(tramlineWidth / seederWidth) //Total tramlines count
     const [tramlineOnNumber, setTramlineOnNumber] = useState(1) //Number of tramline when it should be ON
     const [tramlineInfo, setTramlineInfo] = useState("Without tramline!") //Tramline information show under tramline counter
+    const [tramlineInfoVisible, setTramlineInfoVisible] = useState(false); //Is tramline ON info visible
     const [isHalfSeederInfoVisible, setIsHalfSeederInfoVisible] = useState(false) //Visibility of information about starting seeding with half of the seeder
-    const [isUserDataVisible, setIsUserDataVisible] = useState(true) //Visibility of user input data section
-    const [isTramlineCounterVisible, setIsTramlineVisible] = useState(false) //Visibility of tramline counter screen
+    const [isUserDataVisible, setIsUserDataVisible] = useState(false) //Visibility of user input data section
+    const [isTramlineCounterVisible, setIsTramlineVisible] = useState(true) //Visibility of tramline counter screen
     
     const onSeederWidthChange = (text) => {
-        console.log(text)
-
         if(text == undefined || text == '')
         {
             setTramlineWidth(0);  
@@ -127,9 +126,11 @@ export default function App() {
         if (counter === tramlineOnNumber) {
             console.log("TRAMLINE ON!" + counter)
             setTramlineInfo("TRAMLINE ON!")
+            setTramlineInfoVisible(true)
         } else {
             console.log("TRAMLINE OFF!" + counter)
             setTramlineInfo("Without tramline!")
+            setTramlineInfoVisible(false)
         }
     }
     
@@ -179,27 +180,29 @@ export default function App() {
 
             {isTramlineCounterVisible && (
                 <View style={styles.tramlineCounterContainer}>
-                <Pressable style={styles.backBtn} onPress={returnToMain}>
-                    <Text style={styles.backBtnText}> {'<'} Back</Text>
-                </Pressable>
+                    <Pressable style={styles.backBtn} onPress={returnToMain}>
+                        <Text style={styles.backBtnText}> {'<'} Back</Text>
+                    </Pressable>
 
-                <View style={styles.tramlineContainer}>
-                    <Text style={styles.label}>Tramline:</Text>
-                    {isHalfSeederInfoVisible && (
-                        <Text style={styles.tramlineCounterInfo}>You must start with half of the seeder!</Text>
-                    )}
-                   
-                    <Text style={styles.tramlineCounter}>{tramlineCounter} / {tramlinesCount}</Text>
-                    <Text style={styles.tramlineCounterInfo}>{tramlineInfo}</Text>
-                    <View style={styles.containerSeederWidth}>
-                        <Pressable style={styles.smallButton} onPress={substractTramline}>
-                            <Text style={styles.smallButtonText}>-</Text>
-                        </Pressable>
-                        <Pressable style={styles.smallButton} onPress={addTramline}>
-                            <Text style={styles.smallButtonText}>+</Text>
-                        </Pressable>
+                    <View style={styles.tramlineContainer}>
+                        <Text style={styles.label}>Tramline:</Text>
+                        {isHalfSeederInfoVisible && (
+                            <Text style={styles.tramlineCounterInfo}>You must start with half of the seeder!</Text>
+                        )}
+                    
+                        <Text style={styles.tramlineCounter}>{tramlineCounter} / {tramlinesCount}</Text>
+                        <Text style={[styles.tramlineCounterInfo, tramlineInfoVisible ? styles.textHighlighted : null]}>{tramlineInfo}</Text>
+                        <View style={styles.containerSeederWidth}>
+                            <Pressable style={[styles.smallButton, styles.enlargeButton]} onPress={substractTramline}>
+                                <Text style={[styles.smallButtonText, styles.enlargeButtonText]}>-</Text>
+                            </Pressable>
+                            <Pressable style={[styles.smallButton, styles.enlargeButton]} onPress={addTramline}>
+                                <Text style={[styles.smallButtonText, styles.enlargeButtonText]}>+</Text>
+                            </Pressable>
+                        </View>
                     </View>
-                </View>
+
+                    <View style={styles.dummyContainer}></View>
                 </View>
             )}
            
