@@ -14,6 +14,21 @@ export default function App() {
     const [isUserDataVisible, setIsUserDataVisible] = useState(true) //Visibility of user input data section
     const [isTramlineCounterVisible, setIsTramlineVisible] = useState(false) //Visibility of tramline counter screen
     
+    const onSeederWidthChange = (text) => {
+        console.log(text)
+
+        if(text == undefined || text == '')
+        {
+            setTramlineWidth(0);  
+            onChangeNumber('');
+        }
+        else
+        {
+            onChangeNumber(text)
+            setTramlineWidth(parseFloat(text))
+        }
+    }
+
     const substractTramlineWidth = () => {
         if(seederWidth == '')
         {
@@ -21,7 +36,7 @@ export default function App() {
         }
         else
         {
-            const newTramlineWidth = tramlineWidth - parseFloat(seederWidth)
+            const newTramlineWidth = (parseFloat(tramlineWidth) - parseFloat(seederWidth)).toFixed(2)
             if(newTramlineWidth > 0)
             {
                 setTramlineWidth(newTramlineWidth)
@@ -36,7 +51,7 @@ export default function App() {
         }
         else
         {
-            const newTramlineWidth = tramlineWidth + parseFloat(seederWidth)
+            const newTramlineWidth = (parseFloat(tramlineWidth) + parseFloat(seederWidth)).toFixed(2)
             if(newTramlineWidth < 100)
             {
                 setTramlineWidth(newTramlineWidth)
@@ -134,7 +149,7 @@ export default function App() {
                     
                     <TextInput 
                         style={styles.numberInputField}
-                        onChangeText={onChangeNumber}
+                        onChangeText={onSeederWidthChange}
                         value={seederWidth}
                         placeholder='0'
                         placeholderTextColor={'#555'}
