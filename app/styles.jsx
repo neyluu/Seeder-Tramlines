@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
-import colors from './colors';
+import colors from './colors.js';
 
-export default styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#222',
@@ -33,12 +33,12 @@ export default styles = StyleSheet.create({
     },
     numberInputField: {
       fontSize: 25,
-      color: 'black',
+      color: 'white',
   
       width: 250,
       height: 50,
       marginBottom: 30,
-      padding: 10,
+      padding: 5,
       backgroundColor: colors.grey._700,
   
       borderRadius: 10,
@@ -98,7 +98,7 @@ export default styles = StyleSheet.create({
         textAlign: 'center',
     },
     userDataContainer: {
-     
+      
     },
     tramlineCounterContainer: {
       width: '100%',
@@ -126,3 +126,4 @@ export default styles = StyleSheet.create({
     },
   });
   
+export default styles;

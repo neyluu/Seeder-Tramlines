@@ -1,8 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
-import { Pressable, Text, View, TextInput, SafeAreaView } from 'react-native';
+import { Pressable, Text, View, TextInput } from 'react-native';
 import React, { useState } from 'react';
 
-import styles from './styles';
+import styles from './styles.jsx';
 
 export default function App() {
     const [seederWidth, onChangeNumber] = React.useState(''); //Entered seeder width
@@ -126,22 +125,21 @@ export default function App() {
 
     return (
         <View style={styles.container}>
+        
             {isUserDataVisible && (
                 <View style={styles.userDataContainer}>
                     <Text style={styles.label}>
                         Seeder width:
                     </Text>
-
-                    <SafeAreaView>
-                        <TextInput 
-                            style={styles.numberInputField}
-                            onChangeText={onChangeNumber}
-                            value={seederWidth}
-                            placeholder='0'
-                            placeholderTextColor={'#555'}
-                            keyboardType='numeric'
-                        />
-                    </SafeAreaView>
+                    
+                    <TextInput 
+                        style={styles.numberInputField}
+                        onChangeText={onChangeNumber}
+                        value={seederWidth}
+                        placeholder='0'
+                        placeholderTextColor={'#555'}
+                        keyboardType='numeric'
+                    />
 
                     <Text style={styles.label}>
                         Tramline width:
